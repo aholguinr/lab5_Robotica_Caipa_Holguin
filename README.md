@@ -138,7 +138,7 @@ Para la parte de rutinas y de operación del Pincher se realiza un único script
 
 [![video]([https://i9.ytimg.com/vi/urgtAmz2foA/mqdefault.jpg?sqp=CNzNkpsG-oaymwEmCMACELQB8quKqQMa8AEB-AGUA4AC0AWKAgwIABABGGUgZShlMA8=&rs=AOn4CLDlZFS71zX3vXsmWUqZGh1yUeY7oA](https://github.com/aholguinr/lab5_Robotica_Caipa_Holguin/blob/main/Imagenes/thumbnail.png?raw=true))](https://youtu.be/urgtAmz2foA)
 
-Además, en el repositorio se encuentra el archivo de Python donde también se comenta una breve explicación de todas las rutinas que se realizaron y demás instancias del archivo. [Click aquí para dirigirse al archivo Lab5.py](https://github.com/aholguinr/lab5_Robotica_Caipa_Holguin/blob/main/Catkin/src/dynamixel_one_motor/scripts/lab5.py)
+Además, en el repositorio se encuentra el archivo de Python donde también se comenta una breve explicación de todas las rutinas que se realizaron y demás instancias del archivo. [Click aquí para dirigirse al archivo Lab5.py](https://github.com/aholguinr/lab5_Robotica_Caipa_Holguin/blob/main/Catkin/src/dynamixel_one_motor/scripts/lab5.py). Y adicionalmente a esto, se tiene la carpeta de Catkin en el repositorio, donde están los archivos que generan la conexión con Dynamixel (.yaml, .launch, .py). [Click aquí para dirigirse a la carpeta Catkin](https://github.com/aholguinr/lab5_Robotica_Caipa_Holguin/blob/main/Catkin/src/dynamixel_one_motor).   
 
 Sin embargo, aún con estos recursos, de todos modos se van a explicar de manera generalizada las rutinas en este informe. A final de la explicación, se analizan los resultados.
 
@@ -161,9 +161,9 @@ Para realizar esto, se tienen tres puntos en el espacio claves. El home, un punt
 
 ![Posicion de agarre del marcador](https://github.com/aholguinr/lab5_Robotica_Caipa_Holguin/blob/main/Imagenes/posicion%20carga.jpg?raw=true)
 
-Dicho esto, en la práctica se encontraron diversas dificultades que no solo afectaron esta rutina sino todas las demás. La primera es debido a que se utilizaron los pincher viejos, la rigidez de estos es bastante cuestionable, motivo por el cual entre más se alejaba el centro de masa del pincher de su base de apoyo, su propio peso hacía doblar sus eslabones y por ende la herramienta bajaba más de lo que se proyectaba con la cinemática inversa. Esto generó a que en la mayoría de puntos específicos dentro del espacio de trabajo, se ajustaran los valores de $z$ con el fin de que esto generara la compensación necesaria para que el problema de la caida del pincher se corrijiera de la mejor manera. Sin embargo, esto no siempre se solucionaba, debido a que cada vez que se cambiaba a otro pincher, se comportaba diferente y esta compensación variaba, motivo por el cual no se intentó perfeccionar esta corrección.
+Dicho esto, en la práctica se encontraron diversas dificultades que no solo afectaron esta rutina sino todas las demás. La primera es debido a que se utilizaron los pincher viejos, la rigidez de estos es bastante cuestionable, motivo por el cual entre más se alejaba el centro de masa del pincher de su base de apoyo, su propio peso hacía doblar sus eslabones y por ende la herramienta bajaba más de lo que se proyectaba con la cinemática inversa. Esto generó a que en la mayoría de puntos específicos dentro del espacio de trabajo, se ajustaran los valores de $z$ con el fin de que esto generara la compensación necesaria para que el problema de la caída del pincher se corrijiera de la mejor manera. Sin embargo, esto no siempre se solucionaba, debido a que cada vez que se cambiaba a otro pincher, se comportaba diferente y esta compensación variaba, motivo por el cual no se intentó perfeccionar esta corrección.
 
-Otro error que se presentó en diversas ocasiones es que pareciese que cada vez que se actualizaba el publisher para dirijir el pincher a un punto específico, por un pequeño instante de tiempo se reseteaban los torques de los servomotores, motivo por el cual el brazo tenía una caida bastante notoria a medida que su centro de masa se alejaba más de su base, semejante al problema anterior.
+Otro error que se presentó en diversas ocasiones es que pareciese que cada vez que se actualizaba el publisher para dirigir el pincher a un punto específico, por un pequeño instante de tiempo se reseteaban los torques de los servomotores, motivo por el cual el brazo tenía una caida bastante notoria a medida que su centro de masa se alejaba más de su base, semejante al problema anterior.
 
 Estos dos errores también se mencionaron durante el video.
 
@@ -172,7 +172,7 @@ Estos dos errores también se mencionaron durante el video.
 El brazo dibuja dos arcos que representan los límites de espacio de trabajo diestro
 plano sobre la superficie y regresa a una posición de espera.
 
-Después de hacer pruebas con el pincher, se determina que los radios mínimos y máximos al centro del Pincher son de 17cm y de 29cm. Cabe resaltar que podrían se más extremos, pero se consideran adecuados con el fin de que el ángulo $\beta$ pueda ser $0$ sin mayores dificultades. También se tienen alturas diferentes para cada uno de los dos extremos de los arcos debido al error mencionado anteriormente.  Para el arco interior el $z$ es de $11cm$ mientras que para el arco exterior son valores de $16.3cm$, se pudo haber corregido aún más, sin embargo fueron valores adecuados para generar los arcos.
+Después de hacer pruebas con el pincher, se determina que los radios mínimos y máximos al centro del Pincher son de 17cm y de 29cm. Cabe resaltar que podrían ser más extremos, pero se consideran adecuados con el fin de que el ángulo $\beta$ pueda ser $0$ sin mayores dificultades. También se tienen alturas diferentes para cada uno de los dos extremos de los arcos debido al error mencionado anteriormente.  Para el arco interior el $z$ es de $11cm$ mientras que para el arco exterior son valores de $16.3cm$, se pudo haber corregido aún más, sin embargo fueron valores adecuados para generar los arcos.
 
 ![Espacio de trabajo](https://github.com/aholguinr/lab5_Robotica_Caipa_Holguin/blob/main/Imagenes/home.jpg?raw=true)
 
@@ -191,15 +191,15 @@ Más adelante se muestra en una imágen los resultados de estas iniciales y las 
 Se dibuja sobre la superficie un triángulo equilátero, una circunferencia y
 3 líneas rectas paralelas y regresa a una posición de espera.
 
-Siguiendo con la escritura generada de las iniciales, el triángulo, circunferencia y las líneas se realizan a la derecha en fila de estas letras ya explicadas. Para el triángulo y líneas paralelas, semejante a las iniciales, con los puntos extremos es suficiente para realizar adecuadamente el dibujo de las figuras. Ahora bien, para el circulo es un caso totalmente diferente. Este se parametriza asociado a un número de puntos N, que en el video se realizó con $N=50$. Debido a esto, todos los puntos que se ejecutan en la rutina deben ser parametrizados, incluyendo el más dificl de todos, el parámetro $z$ debido a que este varía dependiendo de la extensión del pincher a la hora de dibujar. 
+Siguiendo con la escritura generada para las iniciales, el triángulo, circunferencia y las líneas se realizan a la derecha en fila de estas letras ya explicadas. Para el triángulo y líneas paralelas, semejante a las iniciales, con los puntos extremos es suficiente para realizar adecuadamente el dibujo de las figuras. Ahora bien, para el circulo es un caso totalmente diferente. Este se parametriza asociado a un número de puntos N, que en el video se realizó con $N=50$. Debido a esto, todos los puntos que se ejecutan en la rutina deben ser parametrizados, incluyendo el más díficl de todos, el parámetro $z$ debido a que este varía dependiendo de la extensión del pincher a la hora de dibujar. 
 
-Dicho esto, a los puntos $P_x$ $P_y$ se asocian funciones de transormación de coordenadas polares a cartesianas para una circunferencia de radio $25mm$ con centro en $[0.225 -0.025]$. Para los $P_z$ se tiene una función de la forma $Zpiso-0.01+0.005*cos(Rads)$, donde $Rads$ es el arreglo de ángulos desde 0 a $2\pi$. Como se puede ver, este $z$ varía semejante a la propia coordenada $x$ del círculo, lo cual es válido debido a que el $x$ debe ser máximo en su inicio de trayectoria que es el punto más alejado, disminuye a un mínimo cuando está en $Rads=\pi$, y luego vuelve a su máximo.
+Dicho esto, a los puntos $P_x$ $P_y$ se asocian funciones de transformación de coordenadas polares a cartesianas para una circunferencia de radio $25mm$ con centro en $[0.225 -0.025]$. Para los $P_z$ se tiene una función de la forma $Zpiso-0.01+0.005*cos(Rads)$, donde $Rads$ es el arreglo de ángulos desde 0 a $2\pi$. Como se puede ver, este $z$ varía semejante a la propia coordenada $x$ del círculo, lo cual es válido debido a que el $x$ debe ser máximo en su inicio de trayectoria que es el punto más alejado, disminuye a un mínimo cuando está en $Rads=\pi$, y luego vuelve a su máximo.
 
 ### Dibujo de puntos: 
 
 El brazo dibuja 5 puntos equidistantes y regresa a una posición de espera.
 
-Para este caso, lo que se realizan son 5 puntos colineales que esten distanciados equitatiavmente entre sus puntos aledaños. Están inscritos sobre una recta vertical respecto a los ejes sobre los cuales se han estado generando las rutinas. Se realiza todo el mapeo de puntos para tener un Z de seguridad y luego un Z donde el marcador pueda simplemente hacer contacto con el tablero y luego volver a subir. Para esto se tuvo en cuenta el error mencionado anteriormente que con cada cambio de movimiento, se reinicia el torque de los motores y se cae. Se aprovechó este movimiento para que la caida generada por el error sea lo suficientemente precisa para que solo se genere un leve contacto. Luego de las cinco iteraciones, se devuelve a Home.
+Para este caso, lo que se realizan son 5 puntos colineales que estén distanciados equitatiavmente entre sus puntos aledaños. Están inscritos sobre una recta vertical respecto a los ejes sobre los cuales se han estado generando las rutinas. Se realiza todo el mapeo de puntos para tener un Z de seguridad y luego un Z donde el marcador pueda simplemente hacer contacto con el tablero y luego volver a subir. Para esto se tuvo en cuenta el error mencionado anteriormente que con cada cambio de movimiento, se reinicia el torque de los motores y se cae. Se aprovechó este movimiento para que la caída generada por el error sea lo suficientemente precisa para que solo se genere un leve contacto. Luego de las cinco iteraciones, se devuelve a Home.
 
 ### Dibujo figura libre: 
 
@@ -210,11 +210,11 @@ Para la rutina de figura libre se realiza una rosa estilizada de cuatro pétalos
 
 $R^2=|cos(2\theta)|$
 
-Se realiza un mapeo de N puntos (50 en el caso del video), y se descomponen en sus coordenadas $x$ y $y$ con centro en coordenadas $[125 200]mm$. Para los puntoz de $z$, se realiza un semejante a lo realizado para la circunferencia, donde va a ser descrito por la función:
+Se realiza un mapeo de N puntos (50 en el caso del video), y se descomponen en sus coordenadas $x$ y $y$ con centro en coordenadas $[125 200]mm$. Para los puntos de $z$, se realiza un semejante a lo realizado para la circunferencia, donde va a ser descrito por la función:
 
 $z=Zpiso-0.005+0.01*cos(\theta-\pi/2)$
 
-Se realiza ese desfase de 90° debido a la orientación del robot. El Z debe ser máximo cuando sea su máxima elongación respecto a la base, lo cual sucede cercano a este desfase. De este modo, se tienen las 50 rutinas que se deben realizar para obtener la rosa. Esta rutina la antecede y precede un movimiento a una posición de seguridad para no empezar el contacto con el tablero de forma abrupta, y lo mismo de salida antes de dirigirse a home.
+Se realiza ese desfase de 90° debido a la orientación del robot. El Z debe ser máximo cuando sea su máxima elongación respecto a la base, lo cual sucede cercano a este desfase. De este modo, se tienen las 50 rutinas que se deben realizar para obtener la rosa. Esta rutina la antecede y precede un movimiento a una posición de seguridad, para no empezar el contacto con el tablero de forma abrupta, y lo mismo para la rutina de salida antes de dirigirse a home.
 
 
 ### Descarga de la herramienta: 
@@ -235,7 +235,7 @@ Ya habiendo explicado todas las rutínas, se va a mostrar una imágen de cómo r
 # Interacción con el usuario: 
 ## Script
 
-Para realizar la GUI se realizó todo mediante consola. Al inicio se le pide al usuario seleccionar alguna de las rutinas mencionadas anteriormente. Cabe resaltar que primero se debe cargar el marcador para realizar las demás rutinas. Luego de seleccionar el número correspondiente y de teclear “enter”, empieza la rutina. Una vez este acabe, la consola vuelve a pedirle al usuario alguna de las rutinas existentes, o, salir del programa. Además, en caso de que se realice una entrada de datos no valida, se entiende que no se realiza ninguna rutina y se sale del programa. Por último, tanto en carga como descarga del marcador, antes de cambiar el valor del gripper, se realiza una parada de advertencia para que el usuario esté seguro de la correcta posición del marcador y/o del portaherramientas.
+Para realizar la UI se realizó todo mediante consola. Al inicio se le pide al usuario seleccionar alguna de las rutinas mencionadas anteriormente. Cabe resaltar que primero se debe cargar el marcador para realizar las demás rutinas. Luego de seleccionar el número correspondiente y de teclear “enter”, empieza la rutina. Una vez este acabe, la consola vuelve a pedirle al usuario alguna de las rutinas existentes, o, salir del programa. Además, en caso de que se realice una entrada de datos no valida, se entiende que no se realiza ninguna rutina y se sale del programa. Por último, tanto en carga como descarga del marcador, antes de cambiar el valor del gripper, se realiza una parada de advertencia para que el usuario esté seguro de la correcta posición del marcador y/o del portaherramientas.
 
 ## Se deben mostrar mensajes al usuario en pantalla (consola) en cada una de las etapas de operación: 
 
@@ -361,7 +361,7 @@ Ya se mencionó anteriormente, sin embargo se vuelve a anexar la posibilidad de 
 
 ### Comparación cualitativa
 
-Ya teniendo todos los resultados, es posible comparar los trazos del marcador con lo que se tenía esperado mediante la gráfica resuelta en Matlab y ajustada a escala real. Dicho esto, la forma más facil es poder superponer los trazos del marcador con la gráfica, lo cual se va a mostrar a continuación:
+Ya teniendo todos los resultados, es posible comparar los trazos del marcador con lo que se tenía esperado mediante la gráfica resuelta en Matlab y ajustada a escala real. Dicho esto, la forma más fácil es poder superponer los trazos del marcador con la gráfica, lo cual se va a mostrar a continuación:
 
 ![Superposicion imagen general](https://github.com/aholguinr/lab5_Robotica_Caipa_Holguin/blob/main/Imagenes/comp%20total.png?raw=true)
 
@@ -370,19 +370,19 @@ Como se puede ver, el trazo que más se ajusta al teórico es el arco inferior. 
 
 ![Comparación iniciales](https://github.com/aholguinr/lab5_Robotica_Caipa_Holguin/blob/main/Imagenes/Comp%20AJ.png?raw=true)
 
-Como se puede apreciar en esta comparación, se tiene una aproximación bastante buena en términos de dimensiones relativas de las letras, y la calidad de trazo va a depender en gran medida en la orientación del mismo, ya que es mucho más dificil para el pincher realizar trazos homogeneos en direcciones que requieran movimientos angulares de $\theta_1$ durante el trazo. Sin embargo, se considera que se obtuvieron resultados satisfactorios, considerando todos los errores que se presentaron durante el laboratorio.
+Como se puede apreciar en esta comparación, se tiene una aproximación bastante buena en términos de dimensiones relativas de las letras, y la calidad de trazo va a depender en gran medida en la orientación del mismo, ya que es mucho más dificil para el pincher realizar trazos homogéneos en direcciones que requieran movimientos angulares de $\theta_1$ durante el trazo. Sin embargo, se considera que se obtuvieron resultados satisfactorios, considerando todos los errores que se presentaron durante el laboratorio.
 
 ![Comparación Figuras geométricas](https://github.com/aholguinr/lab5_Robotica_Caipa_Holguin/blob/main/Imagenes/Com%20Fig.png?raw=true)
 
-Para este caso se puede ver que el triángulo equilatero es bastante semejante al teórico, aunque con algunos desfases de dimensiones del mismo. El círculo tuvo bastantes problemas debido a las coordenadas Z quie variaban pero que lograban arreglar un poco este error de altura de dibujo. Como se puede ver, en la parte superior se trazó una recta hacia abajo, esto sucedió durante el movimiento de salida del marcador al finalizar la figura, y sucedió debido a que el pincher termina dependiendo bastante de la fuerza normal del marcador para sostenerse, motivo por el cual al intentarse salir de esta altura, el marcador alcanza a moverse y generar este trazo mientras se eleva el brazo. Por último, para las rectas paralelas se tienen algunos problemas de rectitud. Se ocasionaron debido a la dificultad de generar trazos rectos en esta dirección en específico, como ya se había explicado para las iniciales. Esto ocasionó que, apesar de tener tres líneas que se pueden considerar paralelas, estas están con baja rectitud a comparación de sus equivalentes teóricos. Sin embargo por nuestra parte nos sentimos satisfechos con este resultado debido a la dificultad que se tuvo para estas rectas.
+Para este caso se puede ver que el triángulo equilatero es bastante semejante al teórico, aunque con algunos desfases de dimensiones del mismo. El círculo tuvo bastantes problemas debido a las coordenadas Z quien variaban pero que lograban arreglar un poco este error de altura de dibujo. Como se puede ver, en la parte superior se trazó una recta hacia abajo, esto sucedió durante el movimiento de salida del marcador al finalizar la figura, y sucedió debido a que el pincher termina dependiendo bastante de la fuerza normal del marcador para sostenerse, motivo por el cual al intentarse salir de esta altura, el marcador alcanza a moverse y generar este trazo mientras se eleva el brazo. Por último, para las rectas paralelas se tienen algunos problemas de rectitud. Se ocasionaron debido a la dificultad de generar trazos rectos en esta dirección en específico, como ya se había explicado para las iniciales. Esto ocasionó que, apesar de tener tres líneas que se pueden considerar paralelas, estas están con baja rectitud a comparación de sus equivalentes teóricos. Sin embargo por nuestra parte nos sentimos satisfechos con este resultado debido a la dificultad que se tuvo para estas rectas.
 
 ![Comparación cinco puntos](https://github.com/aholguinr/lab5_Robotica_Caipa_Holguin/blob/main/Imagenes/Comp%20Puntos.png?raw=true)
 
-Cabe aclarar que sí hubo un error bastante grande de desfase general de las coordenadas globales de los cinco puntos entre la parte teórica y práctica, sin embargo, al superponer y comparar estos dos casos en posiciones relativas semejantes, se descubre que tal vez fue el mejor trazo que se realizó. Esto se debió a la insistencia con los offsets de los Z para cada uno de los 5 puntos, además, debido a que solo eran 5 puntos y no había trazos involucrados, controlar este movimiento de ataque al tablero resultó ser más facil.
+Cabe aclarar que sí hubo un error bastante grande de desfase general de las coordenadas globales de los cinco puntos entre la parte teórica y práctica, sin embargo, al superponer y comparar estos dos casos en posiciones relativas semejantes, se descubre que tal vez fue el mejor trazo que se realizó. Esto se debió a la insistencia con los offsets de los Z para cada uno de los 5 puntos, además, debido a que solo eran 5 puntos y no había trazos involucrados, controlar este movimiento de ataque al tablero resultó ser más fácil.
 
 ![Comparación figura libre](https://github.com/aholguinr/lab5_Robotica_Caipa_Holguin/blob/main/Imagenes/comp%20rosa.png?raw=true)
 
-Para finalizar, se puede realizar la comparación de la rosa de cuatro pétalos. A simple vista, se podría decir que la calidad de trazo no fue muy alta, ya que hay variaciones de tamaño y problemas de rectitur en los trazos entre los pétalos, sin embargo, teniendo en cuenta la complejidad que se tuvo para esta figura y sus coordenadas en Z, se considera que se intentó realizar de la mejor manera posible considerando todos los errores que se generaron con el pincher.
+Para finalizar, se puede realizar la comparación de la rosa de cuatro pétalos. A simple vista, se podría decir que la calidad de trazo no fue muy alta, ya que hay variaciones de tamaño y problemas de rectitud en los trazos entre los pétalos, sin embargo, teniendo en cuenta la complejidad que se tuvo para esta figura y sus coordenadas en Z, se considera que se intentó realizar de la mejor manera posible considerando todos los errores que se generaron con el pincher.
 
 
 Con todo y lo anterior, se puede establecer que el pincher logra generar las rutinas de manera adecuada, generando trazos de las dimensiones pedidas en programación, sin embargo, existe un offset asociado a dichos trazos, el cual es generado por todos los problemas que ya han sido mencionados en el pincher.
@@ -392,7 +392,7 @@ Con todo y lo anterior, se puede establecer que el pincher logra generar las rut
 
 Ya hecha una comparación cualitativa de los resultados de las rutinas, es necesario asociar un valor al error asociado. Para esto, se realiza un mapeo de los puntos más relevantes en el tablero y se calculan las distancias entre su posición esperada y la obtenida.
 
-![Distancias entre valores reales y teóricos](ZELDA)
+![Distancias entre valores reales y teóricos](https://github.com/aholguinr/lab5_Robotica_Caipa_Holguin/blob/main/Imagenes/puntos%20de%20distancia.png?raw=true)
 
 Como se puede evidenciar, se escogieron en total 20 puntos, más que todo en la zona media del espacio de trabajo y cercana a su límite exterior, dado que esta es la región de mayor error. En la zona interna, como se puede apreciar por el arco interior, es casi nulo dicho error motivo por el cual no se le asigna tanta relevancia en el análisis de error.
 
