@@ -53,7 +53,7 @@ $\theta_2$ y $\theta_3$ están descritos por un robot 2R, donde la altura y la d
 
 $P_z-L_4sin(\beta)-L_1$
 
-Ahora, para la componente horizontal, se tiene un parámetro #R# que está asociado a la suma vectorial de los puntos asociados $P_x$ y $P_y$. Además, semejante a la altura, se descompone $L_4$ en esta dirección, resultando que:
+Ahora, para la componente horizontal, se tiene un parámetro $r$ que está asociado a la suma vectorial de los puntos asociados $P_x$ y $P_y$. Además, semejante a la altura, se descompone $L_4$ en esta dirección, resultando que:
 
 
 $r=\sqrt{P_x^2+P_y^2}$    
@@ -239,7 +239,7 @@ Para realizar la GUI se realizó todo mediante consola. Al inicio se le pide al 
 
 ## Se deben mostrar mensajes al usuario en pantalla (consola) en cada una de las etapas de operación: 
 
-Para tener en cuenta, en el archivo del repositorio "output consola.txt", se tiene toda la salida en consola después de haber realizado todas las operaciones que se mostraron en el video. [Click aquí para dirigirse al archivo output consola.txt](https://github.com/aholguinr/lab5_Robotica_Caipa_Holguin/blob/main/Output_consola.txt)
+Para tener en cuenta, en el archivo del repositorio "output consola.txt", se tiene toda la salida en consola después de haber realizado todas las operaciones que se mostraron en el video. [Click aquí para dirigirse al archivo output consola.txt](https://github.com/aholguinr/lab5_Robotica_Caipa_Holguin/blob/main/Output%20consola.txt)
 
 ### Estado de la herramienta (cargada o descargada). 
 
