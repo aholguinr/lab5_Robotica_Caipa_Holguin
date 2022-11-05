@@ -40,7 +40,7 @@ Lo cual genera la siguiente matriz de transformación homogénea del sistema:
 0 & 0 & 0 & 1
 \end{array}\right)\\
 \mathrm{}\\
-\textrm{where}\\
+\textrm{En donde:}\\
 \mathrm{}\\
 \;\;\sigma_1 =L_3 \,\mathrm{cos}\left(\theta_2 +\theta_3 \right)+L_2 \,\mathrm{cos}\left(\theta_2 \right)+L_4 \,\mathrm{cos}\left(\theta_2 +\theta_3 +\theta_4 \right)\\
 \mathrm{}\\
