@@ -30,6 +30,31 @@ Donde se determinaron los siguientes parámetros
 |Theta 4         |      0    |     0    | 90°     |     90°    |   
 |Theta 5         |      L4    |     0    | 0°        |     0°    |  
 
+Lo cual genera la siguiente matriz de transformación homogénea del sistema:
+```math
+\begin{array}{l}
+\left(\begin{array}{cccc}
+\mathrm{sin}\left(\theta_1 \right)\,\mathrm{sin}\left(\theta_5 \right)+\mathrm{cos}\left(\theta_5 \right)\,{\left(\sigma_2 +\sigma_3 \right)} & \mathrm{cos}\left(\theta_5 \right)\,\mathrm{sin}\left(\theta_1 \right)-\mathrm{sin}\left(\theta_5 \right)\,{\left(\sigma_2 +\sigma_3 \right)} & -\frac{\sigma_5 }{2}-\frac{\sigma_4 }{2} & -\mathrm{cos}\left(\theta_1 \right)\,\sigma_1 \\
+-\mathrm{cos}\left(\theta_1 \right)\,\mathrm{sin}\left(\theta_5 \right)-\frac{\mathrm{cos}\left(\theta_5 \right)\,{\left(\sigma_5 -\sigma_4 \right)}}{2} & \mathrm{sin}\left(\theta_5 \right)\,{\left(\frac{\sigma_5 }{2}-\frac{\sigma_4 }{2}\right)}-\mathrm{cos}\left(\theta_1 \right)\,\mathrm{cos}\left(\theta_5 \right) & \sigma_2 -\sigma_3  & -\mathrm{sin}\left(\theta_1 \right)\,\sigma_1 \\
+-\frac{\mathrm{cos}\left(\theta_2 +\theta_3 +\theta_4 +\theta_5 \right)}{2}-\frac{\mathrm{cos}\left(\theta_2 +\theta_3 +\theta_4 -\theta_5 \right)}{2} & \frac{\mathrm{sin}\left(\theta_2 +\theta_3 +\theta_4 +\theta_5 \right)}{2}-\frac{\mathrm{sin}\left(\theta_2 +\theta_3 +\theta_4 -\theta_5 \right)}{2} & -\sigma_6  & L_1 -L_3 \,\mathrm{sin}\left(\theta_2 +\theta_3 \right)-L_2 \,\mathrm{sin}\left(\theta_2 \right)-L_4 \,\sigma_6 \\
+0 & 0 & 0 & 1
+\end{array}\right)\\
+\mathrm{}\\
+\textrm{where}\\
+\mathrm{}\\
+\;\;\sigma_1 =L_3 \,\mathrm{cos}\left(\theta_2 +\theta_3 \right)+L_2 \,\mathrm{cos}\left(\theta_2 \right)+L_4 \,\mathrm{cos}\left(\theta_2 +\theta_3 +\theta_4 \right)\\
+\mathrm{}\\
+\;\;\sigma_2 =\frac{\mathrm{sin}\left(\theta_2 -\theta_1 +\theta_3 +\theta_4 \right)}{2}\\
+\mathrm{}\\
+\;\;\sigma_3 =\frac{\mathrm{sin}\left(\theta_1 +\theta_2 +\theta_3 +\theta_4 \right)}{2}\\
+\mathrm{}\\
+\;\;\sigma_4 =\mathrm{cos}\left(\theta_2 -\theta_1 +\theta_3 +\theta_4 \right)\\
+\mathrm{}\\
+\;\;\sigma_5 =\mathrm{cos}\left(\theta_1 +\theta_2 +\theta_3 +\theta_4 \right)\\
+\mathrm{}\\
+\;\;\sigma_6 =\mathrm{sin}\left(\theta_2 +\theta_3 +\theta_4 \right)
+\end{array}
+```
 
 Donde las longitudes de los eslabones son:
 
